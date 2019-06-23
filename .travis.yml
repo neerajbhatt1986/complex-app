@@ -4,7 +4,7 @@ before_script:
   - docker build -t neerajbhattneeraj/client -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run neerajbhattneeraj/client npm test -- --converage
+  - docker run neerajbhattneeraj/client npm test -- --coverage
 
 after_success:
   - docker build -t neerajbhattneeraj/complex-client ./client
