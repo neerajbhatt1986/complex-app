@@ -11,3 +11,9 @@ after_success:
   - docker build -t neerajbhattneeraj/complex-server ./server
   - docker build -t neerajbhattneeraj/complex-worker ./worker
   - docker build -t neerajbhattneeraj/complex-nginx ./nginx
+
+deploy:
+  provider: script
+  script: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD && make push-image
+  on:
+    branch: master
